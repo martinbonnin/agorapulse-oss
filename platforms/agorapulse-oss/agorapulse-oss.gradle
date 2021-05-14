@@ -1,0 +1,93 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Copyright 2021 Vladimir Orany.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+//file:noinspection CompileStatic,DuplicateStringLiteral
+dependencies {
+    constraints {
+        api "agorapulse.libs:groovy-aws-sdk-s3:${project['groovy.aws.sdk.version']}"
+        api "agorapulse.libs:groovy-aws-sdk-util:${project['groovy.aws.sdk.version']}"
+        api "agorapulse.libs:groovy-aws-sdk-ses:${project['groovy.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-facebook-sdk:${project['micronaut.facebook.sdk.version']}"
+        api "com.agorapulse:micronaut-facebook-sdk-grails:${project['micronaut.facebook.sdk.version']}"
+        api "com.agorapulse:micronaut-facebook-sdk-rx:${project['micronaut.facebook.sdk.version']}"
+        api "com.agorapulse:micronaut-facebook-sdk-mock:${project['micronaut.facebook.sdk.version']}"
+        api "com.agorapulse:micronaut-facebook-sdk-fsr:${project['micronaut.facebook.sdk.version']}"
+        api "com.agorapulse:micronaut-rethrow:${project['micronaut.rethrow.version']}"
+        api "com.agorapulse:remember:${project['remember.version']}"
+        api "com.agorapulse:micronaut-snitch:${project['micronaut.snitch.version']}"
+        api "com.agorapulse:micronaut-segment:${project['micronaut.segment.version']}"
+        api "com.agorapulse:micronaut-aws-sdk:${project['micronaut.libraries.version']}"
+        api "com.agorapulse:micronaut-grails:${project['micronaut.grails.version']}"
+        api "com.agorapulse:micronaut-grails-web-boot:${project['micronaut.grails.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-ag-ws:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-cloudwatch:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-core:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-dynamodb:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-kinesis:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-kinesis-worker:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-s3:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-ses:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-sns:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-sqs:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-aws-sdk-sts:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-amazon-awssdk-cloudwatch:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-amazon-awssdk-core:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-amazon-awssdk-dynamodb:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-amazon-awssdk-kinesis:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-amazon-awssdk-s3:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-amazon-awssdk-ses:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-amazon-awssdk-sns:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-amazon-awssdk-sqs:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:micronaut-amazon-awssdk-sts:${project['micronaut.aws.sdk.version']}"
+        api "com.agorapulse:gru:${project['gru.version']}"
+        api "com.agorapulse:gru-api-gateway:${project['gru.version']}"
+        api "com.agorapulse:gru-grails:${project['gru.version']}"
+        api "com.agorapulse:gru-http:${project['gru.version']}"
+        api "com.agorapulse:gru-spring:${project['gru.version']}"
+        api "com.agorapulse:gru-micronaut:${project['gru.version']}"
+        api "com.agorapulse:dru:${project['dru.version']}"
+        api "com.agorapulse:dru-client-dynamodb:${project['dru.version']}"
+        api "com.agorapulse:dru-client-gorm:${project['dru.version']}"
+        api "com.agorapulse:dru-client-micronaut-data:${project['dru.version']}"
+        api "com.agorapulse:dru-parser-json:${project['dru.version']}"
+        api "com.agorapulse:dru-parser-yaml:${project['dru.version']}"
+        api "com.agorapulse:micronaut-log4aws:${project['micronaut.log4aws.version']}"
+        api "com.agorapulse:micronaut-newrelic:${project['micronaut.newrelic.version']}"
+        api "com.agorapulse:micronaut-newrelic-http:${project['micronaut.newrelic.version']}"
+        api "com.agorapulse:micronaut-bigquery:${project['micronaut.bigquery.version']}"
+        api "com.agorapulse:micronaut-bigquery-aws:${project['micronaut.bigquery.version']}"
+        api "com.agorapulse:micronaut-bigquery-mock:${project['micronaut.bigquery.version']}"
+        api "com.agorapulse:micronaut-recurly:${project['micronaut.recurly.version']}"
+        api "com.agorapulse:micronaut-console:${project['micronaut.console.version']}"
+        api "com.agorapulse:micronaut-worker:${project['micronaut.worker.version']}"
+        api "com.agorapulse:micronaut-worker-queues-sqs-v1:${project['micronaut.worker.version']}"
+        api "com.agorapulse:micronaut-worker-executor-redis:${project['micronaut.worker.version']}"
+        api "com.agorapulse.testing:fixt:${project['testing.libraries.version']}"
+        api "com.agorapulse.testing:grails-job-testing-support:${project['testing.libraries.version']}"
+        api "com.agorapulse.testing:office-unit:${project['testing.libraries.version']}"
+        api "com.agorapulse.testing:spock:${project['testing.libraries.version']}"
+        api "org.grails.plugins:facebook-sdk:${project['grails.facebook.sdk.version']}"
+        api "org.grails.plugins:aws-sdk-cognito:${project['grails.aws.sdk.version']}"
+        api "org.grails.plugins:aws-sdk-dynamodb:${project['grails.aws.sdk.version']}"
+        api "org.grails.plugins:aws-sdk-kinesis:${project['grails.aws.sdk.version']}"
+        api "org.grails.plugins:aws-sdk-s3:${project['grails.aws.sdk.version']}"
+        api "org.grails.plugins:aws-sdk-ses:${project['grails.aws.sdk.version']}"
+        api "org.grails.plugins:aws-sdk-sns:${project['grails.aws.sdk.version']}"
+        api "org.grails.plugins:aws-sdk-sqs:${project['grails.aws.sdk.version']}"
+        api "org.grails.plugins:aws-sdk-sts:${project['grails.aws.sdk.version']}"
+    }
+}

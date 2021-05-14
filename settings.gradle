@@ -38,16 +38,19 @@ apply plugin:  'org.kordamp.gradle.settings'
 rootProject.name = 'agorapulse-oss-root'
 
 projects {
-    directories = ['libs', 'docs', 'examples']
+    directories = ['platforms', 'docs', 'examples']
 
     plugins {
         dir('docs') {
             id 'org.kordamp.gradle.guide'
             id 'org.ajoberstar.git-publish'
         }
-        dirs(['libs', 'examples']) {
+        dir('examples') {
             id 'java-library'
             id 'groovy'
+        }
+        dir('platforms') {
+            id 'java-platform'
         }
     }
 }

@@ -73,7 +73,7 @@ config {
 
     publishing {
         signing {
-            enabled =  true
+            enabled = true
             keyId = signingKeyId
             secretKey = signingSecretKey
             password = signingPassword
@@ -163,22 +163,6 @@ projects {
                 publishing {
                     enabled = false
                 }
-            }
-        }
-
-        dir('libs') {
-            processResources {
-                filesMatching('**/org.codehaus.groovy.runtime.ExtensionModule') {
-                    filter(org.apache.tools.ant.filters.ReplaceTokens, tokens: [VERSION: version])
-                }
-            }
-
-            jar {
-                manifest.attributes provider: 'gradle'
-            }
-
-            dependencies {
-                testImplementation group: 'org.spockframework', name: 'spock-core', version: spockVersion
             }
         }
     }

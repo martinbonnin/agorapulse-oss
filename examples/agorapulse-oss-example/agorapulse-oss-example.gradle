@@ -17,7 +17,7 @@
  */
 
 dependencies {
-    implementation project(":agorapulse-oss")
+    implementation platform(project(":agorapulse-oss"))
 
     // add example project's dependencies
 }
