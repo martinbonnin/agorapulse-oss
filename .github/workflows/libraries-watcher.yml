@@ -1,0 +1,39 @@
+name: Libraries Watcher
+on:
+  repository_dispatch:
+    types: [ap-new-version-released-event]
+jobs:
+  update-bom:
+    name: Updates Version and Opens PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Upgrade Version Number
+        env:
+          RELEASE_DESCRIPTION: ${{ github.event.client_payload.github.event.repository.description }}
+        run: |
+          export release_body="$(jq '.client_payload.github.event.release.body' $GITHUB_EVENT_PATH)"
+          release_body="${release_body%\"}"
+          release_body="${release_body#\"}"
+          export property="${{ github.event.client_payload.property }}"
+          export property_escaped="${property//./\\.}"
+          export version="${{ github.event.client_payload.version }}"
+          sed -i "s/${property_escaped}.*/${property} = ${version}/" gradle.properties
+          sed -i "2 a### $RELEASE_DESCRIPTION $version\n\n$release_body\n" CHANGELOG.md
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.AGORAPULSE_BOT_PERSONAL_TOKEN }}
+          commit-message: Upgraded to ${{ github.event.client_payload.github.event.repository.description }} ${{ github.event.client_payload.version }}
+          title: '[${{ github.event.client_payload.github.event.repository.description }}] Upgraded to ${{ github.event.client_payload.github.event.repository.description }} ${{ github.event.client_payload.version }}'
+          body: |
+            ${{ github.event.client_payload.github.event.release.body }}
+
+            See ${{ github.event.client_payload.github.event.release.html_url }}
+          labels: chore,upgrade,automerge
+          branch: upgrade/${{ github.event.client_payload.group }}/${{ github.event.client_payload.module }}
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"

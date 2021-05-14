@@ -16,10 +16,7 @@
  * limitations under the License.
  */
 plugins {
-    id 'org.kordamp.gradle.groovy-project'
-    id 'org.kordamp.gradle.checkstyle'
-    id 'org.kordamp.gradle.codenarc'
-    id 'org.kordamp.gradle.coveralls'
+    id 'org.kordamp.gradle.java-project'
     id 'io.github.gradle-nexus.publish-plugin'
 }
 
@@ -83,16 +80,6 @@ config {
         snapshotsRepository = 'localSnapshot'
     }
 
-    quality {
-        checkstyle {
-            toolVersion = '8.27'
-        }
-
-        codenarc {
-            toolVersion = '1.5'
-        }
-    }
-
 }
 
 nexusPublishing {
@@ -104,69 +91,4 @@ nexusPublishing {
     }
 }
 
-allprojects {
-    repositories {
-        mavenCentral()
-        maven { url "https://repo.spring.io/release"  }
-    }
-
-    license {
-        exclude '**/*.json'
-        exclude '***.yml'
-    }
-}
-
-projects {
-    subprojects {
-        dirs(['libs', 'examples']) { Project subproject ->
-            sourceCompatibility = 1.8
-            targetCompatibility = 1.8
-
-            repositories {
-                mavenCentral()
-            }
-
-            // location independent tests (useful for stable CI builds)
-            tasks.withType(Test){
-                systemProperty 'user.timezone', 'UTC'
-                systemProperty 'user.language', 'en'
-            }
-
-            tasks.withType(JavaCompile) {
-                options.encoding = "UTF-8"
-                options.compilerArgs.add('-parameters')
-            }
-
-            tasks.withType(GroovyCompile) {
-                groovyOptions.forkOptions.jvmArgs.add('-Dgroovy.parameters=true')
-            }
-
-            dependencies {
-                api platform("org.codehaus.groovy:groovy-bom:$groovyVersion")
-                compile platform("org.codehaus.groovy:groovy-bom:$groovyVersion")
-                implementation platform("org.codehaus.groovy:groovy-bom:$groovyVersion")
-                compileOnly platform("org.codehaus.groovy:groovy-bom:$groovyVersion")
-                testCompile platform("org.codehaus.groovy:groovy-bom:$groovyVersion")
-                testImplementation platform("org.codehaus.groovy:groovy-bom:$groovyVersion")
-            }
-
-            // useful for IntelliJ
-            task cleanOut(type: Delete) {
-                delete file('out')
-            }
-
-            clean.dependsOn cleanOut
-        }
-
-        dir('examples') {
-            config {
-                publishing {
-                    enabled = false
-                }
-            }
-        }
-    }
-}
-
-
-check.dependsOn('aggregateCheckstyle', 'aggregateCodenarc', 'aggregateAllTestReports', 'coveralls')
+check.dependsOn('generatePomFileForMainPublication', 'generateMetadataFileForMainPublication')

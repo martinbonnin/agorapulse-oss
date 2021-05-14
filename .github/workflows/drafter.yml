@@ -1,0 +1,38 @@
+name: Draft Release Notes
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Prepare Next Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Extract Text
+        id: text
+        run: |
+          export CHANGELOG="$(csplit -s -f changelog CHANGELOG.md "/^## .*$/" "{2}" && cat changelog01 | egrep -v "^## .*$" | sed "s/^$//" | sed "s/\* //g" | sed "s/^ *//g")"
+          CHANGELOG="${CHANGELOG//'%'/'%25'}"
+          CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
+          CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
+          echo "::set-output name=changelog::$(echo "$CHANGELOG")"
+          echo "::set-output name=date::$(echo "$(date +"%Y.%-m.%-d.%H%M")")"
+      - name: Print Changelog
+        run: |
+          echo "date: ${{ steps.text.outputs.date }}"
+          echo "${{ steps.text.outputs.changelog }}"
+      - name: Delete drafts
+        uses: hugo19941994/delete-draft-releases@v0.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Draft Next Release
+        uses: meeDamian/github-release@2.0
+        with:
+          tag: ${{ steps.text.outputs.date }}
+          name: ${{ steps.text.outputs.date }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: ${{ steps.text.outputs.changelog }}
+          draft: true
+          allow_override: true
