@@ -92,3 +92,4 @@ nexusPublishing {
 }
 
 check.dependsOn(':agorapulse-oss:generatePomFileForMainPublication', ':agorapulse-oss:generateMetadataFileForMainPublication')
+check.dependsOn(':agorapulse-external:generatePomFileForMainPublication', ':agorapulse-external:generateMetadataFileForMainPublication')

@@ -1,0 +1,69 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 0 * * *'
+jobs:
+  update-bom:
+    name: Updates Version and Opens PR
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        library:
+          - path: io/micronaut/micronaut-bom
+            property: micronaut.version
+            name: Micronaut
+          - path: org/grails/grails-bom
+            property: grails.version
+            name: Grails
+          - path: org/codehaus/groovy/groovy-bom
+            property: groovy.version
+            name: Groovy
+          - path: com/amazonaws/aws-java-sdk-bom
+            property: aws.sdk.version
+            name: AWS SDK v1
+          - path: software/amazon/awssdk/bom
+            property: aws.sdk.v2.version
+            name: AWS SDK v2
+          - path: org/apache/logging/log4j/log4j-bom
+            property: log4j.version
+            name: Log4j
+          - path: org/testcontainers/testcontainers-bom
+            property: testcontainers.version
+            name: Testcontainers
+          - path: org/spockframework/spock-bom
+            property: spock.version
+            name: Spock
+          - path: com/fasterxml/jackson/jackson-bom
+            property: jackson.version
+            name: Jackson
+    steps:
+      - uses: actions/checkout@v2
+      - name: Fetch Maven descriptor for ${{ matrix.library.name }}
+        run: |
+          mkdir -p /tmp/maven/${{ matrix.library.path }}
+          curl https://repo1.maven.org/maven2/${{ matrix.library.path }}/maven-metadata.xml -o /tmp/maven/${{ matrix.library.path }}/maven-metadata.xml
+      - name: Extract the latest version
+        uses: QwerMike/xpath-action@v1
+        id: xpath
+        with:
+          filename: /tmp/maven/${{ matrix.library.path }}/maven-metadata.xml
+          expression: /metadata/versioning/latest/text()
+      - name: Upgrade  ${{ matrix.library.name }} Number
+        run: |
+          sed -i 's/${{ matrix.library.property }}.*/ ${{ matrix.library.property }}=${{ steps.xpath.outputs.result }}/' gradle.properties
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Upgraded to  ${{ matrix.library.name }} ${{ steps.xpath.outputs.result }}
+          title: '[Upgrade] Upgraded to the  ${{ matrix.library.name }} ${{ steps.xpath.outputs.result }}'
+          body: |
+            There is a newer version ${{ steps.xpath.outputs.result }} of  ${{ matrix.library.name }} available.
+          labels: chore,upgrade
+          assignees: musketyr
+          branch: upgrade/${{ matrix.library.path }}
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
