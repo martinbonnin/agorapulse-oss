@@ -16,13 +16,21 @@
  * limitations under the License.
  */
 //file:noinspection CompileStatic,DuplicateStringLiteral
+
+javaPlatform {
+    allowDependencies()
+}
+
 dependencies {
         api platform("io.micronaut:micronaut-bom:${project['micronaut.version']}")
         api platform("org.grails:grails-bom:${project['grails.version']}")
+        api platform("org.codehaus.groovy:groovy-bom:${project['groovy.version']}")
         api platform("com.amazonaws:aws-java-sdk-bom:${project['aws.sdk.version']}")
         api platform("software.amazon.awssdk:bom:${project['aws.sdk.v2.version']}")
         api platform("org.apache.logging.log4j:log4j-bom:${project['log4j.version']}")
         api platform("org.testcontainers:testcontainers-bom:${project['testcontainers.version']}")
+        api platform("org.spockframework:spock-bom:${project['spock.version']}")
+        api platform("com.fasterxml.jackson:jackson-bom:${project['jackson.version']}")
 }
 
 project.afterEvaluate {
