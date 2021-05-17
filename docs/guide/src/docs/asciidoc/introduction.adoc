@@ -6,7 +6,7 @@ This page is a catalogue of all currently supported open-source libraries provid
 The major categories are Grails Plugins, Micronaut Libraries and Testing Libraries. You can use a Maven BOM file
 to ensure you are using the latest versions of the libraries:
 
-[source,groovy,role="primary"]
+[source,groovy,role="primary",subs='verbatim,attributes']
 .Gradle
 ----
 dependnecies {
@@ -14,7 +14,7 @@ dependnecies {
 }
 ----
 
-[source,xml,role="secondary"]
+[source,xml,role="secondary",subs='verbatim,attributes']
 .Maven
 ----
 <dependencyManagement>
