@@ -18,9 +18,9 @@
 //file:noinspection CompileStatic,DuplicateStringLiteral
 dependencies {
     constraints {
-        api "agorapulse.libs:groovy-aws-sdk-s3:${project['groovy.aws.sdk.version']}"
-        api "agorapulse.libs:groovy-aws-sdk-util:${project['groovy.aws.sdk.version']}"
-        api "agorapulse.libs:groovy-aws-sdk-ses:${project['groovy.aws.sdk.version']}"
+        api "agorapulse.libs:groovy-aws-sdk-s3:${project['grails.aws.sdk.version']}"
+        api "agorapulse.libs:groovy-aws-sdk-util:${project['grails.aws.sdk.version']}"
+        api "agorapulse.libs:groovy-aws-sdk-ses:${project['grails.aws.sdk.version']}"
         api "com.agorapulse:micronaut-facebook-sdk:${project['micronaut.facebook.sdk.version']}"
         api "com.agorapulse:micronaut-facebook-sdk-grails:${project['micronaut.facebook.sdk.version']}"
         api "com.agorapulse:micronaut-facebook-sdk-rx:${project['micronaut.facebook.sdk.version']}"
