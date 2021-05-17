@@ -2,4 +2,30 @@
 [[_introduction]]
 = Introduction
 
-Lorem ipsum dolor sit amet
+This page is a catalogue of all currently supported open-source libraries provided by https://www.agorapulse.com/[Agorapulse].
+The major categories are Grails Plugins, Micronaut Libraries and Testing Libraries. You can use a Maven BOM file
+to ensure you are using the latest versions of the libraries:
+
+[source,groovy,role="primary"]
+.Gradle
+----
+dependnecies {
+    implementation platform('com.agorapulse:agorapulse-oss:{project-version}')
+}
+----
+
+[source,xml,role="secondary"]
+.Maven
+----
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.agorapulse</groupId>
+            <artifactId>agorapulse-oss</artifactId>
+            <version>{project-version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+----

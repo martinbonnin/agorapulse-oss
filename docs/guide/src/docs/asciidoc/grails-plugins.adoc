@@ -1,0 +1,26 @@
+
+[[_grails_plugins]]
+= Grails Plugins
+
+This is the list of currently available Grails plugins.
+
+WARNING: We are deprecating the usage of Grails Plugins in favor of <<_micronaut_libraries, Micronaut Libraries>> at the moment.
+
+[[_grails_aws_sdk]]
+== Grails AWS SDK
+
+Grails AWS SDK plugins provide Grails integration to Amazon Web Services. At the moment,
+there is a support for Cognito, DynamoDB, Kinesis, S3, SES, SNS, SQS.
+
+https://github.com/agorapulse/grails-aws-sdk#aws-sdk-grails-plugin[Read more]
+
+WARNING: These plugins are superseded by <<_micronaut_aws_sdk, Micronaut AWS SDK>> libraries.
+
+[[_grails_facebook_sdk]]
+== Grails Facebook SDK
+
+This project contains the open source Grails Facebook SDK Plugin that allows you to integrate the Facebook Platform on a website/app powered by Grails.
+
+https://github.com/agorapulse/grails-facebook-sdk#facebook-sdk-grails-plugin[Read more]
+
+WARNING: These plugins are superseded by <<_micronaut_facebook_sdk, Micronaut Facebook SDK>> libraries.

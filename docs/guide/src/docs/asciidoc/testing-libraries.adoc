@@ -1,0 +1,51 @@
+
+[[_testing_libraries]]
+= Testing Libraries
+
+We provide several libraries to help you test your application.
+
+[[_dru]]
+== Dru
+
+Dru is Data Reconstruction Utility which helps to create and maintain test data based on real-life production data as
+it is for example often easier to grab production data of web application as JSON than trying to create selective export from one or more data stores.
+
+https://agorapulse.github.io/dru/[Read more]
+
+[[_fixt]]
+== Fixt
+
+Fixt helps organize fixtures for your fixtures in a directories with the same name as your test class.
+
+https://agorapulse.github.io/testing-libraries/#_fixt[Read more]
+
+[[_grails_jobs_testing_support]]
+
+== Grails Job Testing Support
+
+Grails Job Testing Support brings the same trait-based testing support to the jobs created by the Quartz plugin as the original https://testing.grails.org/[Grails Testing Support].
+
+https://agorapulse.github.io/testing-libraries/#_grails_job_testing_support[Read more]
+
+
+[[_gru]]
+== Gru
+
+Gru is HTTP interaction testing framework with out-of-box support for Micronaut, Grails, Spring MVC, API Gateway but it can be used with any HTTP server framework.
+
+https://agorapulse.github.io/gru/[Read more]
+
+[[_office_unit]]
+== Office Unit
+
+Office Unit is trivial tool for matching Microsoft Office documents.
+
+https://agorapulse.github.io/testing-libraries/#_office_unit[Read more]
+
+[[_spock]]
+
+== Spock Extensions
+
+Set of useful extensions for the https://spockframework.org/[Spock Framework].
+
+https://agorapulse.github.io/testing-libraries/#_spock[Read more]

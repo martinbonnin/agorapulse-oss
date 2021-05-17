@@ -30,6 +30,10 @@ config {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
 configurations {
     asciidoctorExtensions
 }
