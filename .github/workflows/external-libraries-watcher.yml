@@ -13,30 +13,39 @@ jobs:
           - path: io/micronaut/micronaut-bom
             property: micronaut.version
             name: Micronaut
+            xpath: /metadata/versioning/versions/version[starts-with(text(),'1.3')][last()]/text()
           - path: org/grails/grails-bom
             property: grails.version
             name: Grails
+            xpath: /metadata/versioning/versions/version[starts-with(text(),'4.0')][last()]/text()
           - path: org/codehaus/groovy/groovy-bom
             property: groovy.version
             name: Groovy
+            xpath: /metadata/versioning/versions/version[starts-with(text(),'2.5')][last()]/text()
           - path: com/amazonaws/aws-java-sdk-bom
             property: aws.sdk.version
             name: AWS SDK v1
+            xpath: /metadata/versioning/latest/text()
           - path: software/amazon/awssdk/bom
             property: aws.sdk.v2.version
             name: AWS SDK v2
+            xpath: /metadata/versioning/latest/text()
           - path: org/apache/logging/log4j/log4j-bom
             property: log4j.version
             name: Log4j
+            xpath: /metadata/versioning/latest/text()
           - path: org/testcontainers/testcontainers-bom
             property: testcontainers.version
             name: Testcontainers
+            xpath: /metadata/versioning/latest/text()
           - path: org/spockframework/spock-bom
             property: spock.version
             name: Spock
+            xpath: /metadata/versioning/versions/version[starts-with(text(),'1')][contains(text(), 'groovy-2.5')][last()]/text()
           - path: com/fasterxml/jackson/jackson-bom
             property: jackson.version
             name: Jackson
+            xpath: /metadata/versioning/latest/text()
     steps:
       - uses: actions/checkout@v2
       - name: Fetch Maven descriptor for ${{ matrix.library.name }}
@@ -48,10 +57,10 @@ jobs:
         id: xpath
         with:
           filename: /tmp/maven/${{ matrix.library.path }}/maven-metadata.xml
-          expression: /metadata/versioning/latest/text()
+          expression: ${{ matrix.library.xpath }}
       - name: Upgrade  ${{ matrix.library.name }} Number
         run: |
-          sed -i 's/${{ matrix.library.property }}.*/ ${{ matrix.library.property }}=${{ steps.xpath.outputs.result }}/' gradle.properties
+          sed -i 's/${{ matrix.library.property }}.*/${{ matrix.library.property }} = ${{ steps.xpath.outputs.result }}/' gradle.properties
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
