@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Vladimir Orany">
+<title>Agorapulse OSS Hub</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.hidden {
+    display: none;
+}
+
+.switch {
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #7a2518;
+    display: inline-block;
+}
+
+.switch--item {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #7a2518;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.switch--item.selected {
+    background-color: #7a2519;
+    color: #ffffff;
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+<script type="text/javascript">
+function addBlockSwitches() {
+    $('.primary').each(function() {
+        primary = $(this);
+        createSwitchItem(primary, createBlockSwitch(primary)).item.addClass("selected");
+        primary.children('.title').remove();
+    });
+    $('.secondary').each(function(idx, node) {
+        secondary = $(node);
+        primary = findPrimary(secondary);
+        switchItem = createSwitchItem(secondary, primary.children('.switch'));
+        switchItem.content.addClass('hidden');
+        findPrimary(secondary).append(switchItem.content);
+        secondary.remove();
+    });
+}
+
+function createBlockSwitch(primary) {
+    blockSwitch = $('<div class="switch"></div>');
+    primary.prepend(blockSwitch);
+    return blockSwitch;
+}
+
+function findPrimary(secondary) {
+    candidate = secondary.prev();
+    while (!candidate.is('.primary')) {
+        candidate = candidate.prev();
+    }
+    return candidate;
+}
+
+function createSwitchItem(block, blockSwitch) {
+    blockName = block.children('.title').text();
+    content = block.children('.content').first().append(block.next('.colist'));
+    item = $('<div class="switch--item">' + blockName + '</div>');
+    item.on('click', '', content, function(e) {
+        $(this).addClass('selected');
+        $(this).siblings().removeClass('selected');
+        e.data.siblings('.content').addClass('hidden');
+        e.data.removeClass('hidden');
+    });
+    blockSwitch.append(item);
+    return {'item': item, 'content': content};
+}
+
+$(addBlockSwitches);
+
+</script>
+
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>Agorapulse OSS Hub</h1>
+<div class="details">
+<span id="author" class="author">Vladimir Orany</span><br>
+<span id="revnumber">version 2021.5.17.0725</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_micronaut_libraries">2. Micronaut Libraries</a>
+<ul class="sectlevel2">
+<li><a href="#_micronaut_aws_sdk">2.1. Micronaut AWS SDK</a></li>
+<li><a href="#_micronaut_bigquery">2.2. Micronaut BigQuery</a></li>
+<li><a href="#_micronaut_console">2.3. Micronaut Console</a></li>
+<li><a href="#_micronaut_facebook_sdk">2.4. Micronaut Facebook SDK</a></li>
+<li><a href="#_micronaut_grails">2.5. Micronaut Grails</a></li>
+<li><a href="#_micronaut_log4aws">2.6. Micronaut Log4AWS</a></li>
+<li><a href="#_micronaut_newrelic">2.7. Micronaut NewRelic</a></li>
+<li><a href="#_micronaut_recurly">2.8. Micronaut Recurly</a></li>
+<li><a href="#_micronaut_rethrow">2.9. Micronaut Rethrow</a></li>
+<li><a href="#_micronaut_segment">2.10. Micronaut Segment</a></li>
+<li><a href="#_micronaut_snitch">2.11. Micronaut Snitch</a></li>
+<li><a href="#_micronaut_worker">2.12. Micronaut Worker</a></li>
+</ul>
+</li>
+<li><a href="#_testing_libraries">3. Testing Libraries</a>
+<ul class="sectlevel2">
+<li><a href="#_dru">3.1. Dru</a></li>
+<li><a href="#_fixt">3.2. Fixt</a></li>
+<li><a href="#_grails_jobs_testing_support">3.3. Grails Job Testing Support</a></li>
+<li><a href="#_gru">3.4. Gru</a></li>
+<li><a href="#_office_unit">3.5. Office Unit</a></li>
+<li><a href="#_spock">3.6. Spock Extensions</a></li>
+</ul>
+</li>
+<li><a href="#_grails_plugins">4. Grails Plugins</a>
+<ul class="sectlevel2">
+<li><a href="#_grails_aws_sdk">4.1. Grails AWS SDK</a></li>
+<li><a href="#_grails_facebook_sdk">4.2. Grails Facebook SDK</a></li>
+</ul>
+</li>
+<li><a href="#_other">5. Other</a>
+<ul class="sectlevel2">
+<li><a href="#_remember">5.1. Remember</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page is a catalogue of all currently supported open-source libraries provided by <a href="https://www.agorapulse.com/">Agorapulse</a>.
+The major categories are Grails Plugins, Micronaut Libraries and Testing Libraries. You can use a Maven BOM file
+to ensure you are using the latest versions of the libraries:</p>
+</div>
+<div class="listingblock primary">
+<div class="title">Gradle</div>
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">dependnecies {
+    implementation platform('com.agorapulse:agorapulse-oss:2021.5.17.0725')
+}</code></pre>
+</div>
+</div>
+<div class="listingblock secondary">
+<div class="title">Maven</div>
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="xml">&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.agorapulse&lt;/groupId&gt;
+            &lt;artifactId&gt;agorapulse-oss&lt;/artifactId&gt;
+            &lt;version&gt;2021.5.17.0725&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_micronaut_libraries"><a class="anchor" href="#_micronaut_libraries"></a>2. Micronaut Libraries</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_micronaut_aws_sdk"><a class="anchor" href="#_micronaut_aws_sdk"></a>2.1. Micronaut AWS SDK</h3>
+<div class="paragraph">
+<p>A set of useful libraries to integrate Micronaut with Amazon Web Services. The following services are supported:
+DynamoDB, Kinesis, S3, SES, SNS, SQS and STS.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-aws-sdk/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_bigquery"><a class="anchor" href="#_micronaut_bigquery"></a>2.2. Micronaut BigQuery</h3>
+<div class="paragraph">
+<p>Micronaut BigQuery library helps to simplify usage of <a href="https://cloud.google.com/bigquery/">BigQuery</a> in the Micronaut applications.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-bigquery/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_console"><a class="anchor" href="#_micronaut_console"></a>2.3. Micronaut Console</h3>
+<div class="paragraph">
+<p>Micronaut Console is extension to the Micronaut applications and functions which allows executing arbitrary code.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-console/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_facebook_sdk"><a class="anchor" href="#_micronaut_facebook_sdk"></a>2.4. Micronaut Facebook SDK</h3>
+<div class="paragraph">
+<p>Micronaut provider for <a href="https://restfb.com/">restfb Facebook Java client</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/agorapulse/micronaut-facebook-sdk#micronaut-facebook-sdk">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_grails"><a class="anchor" href="#_micronaut_grails"></a>2.5. Micronaut Grails</h3>
+<div class="paragraph">
+<p>Micronaut Grails library helps to use Micronaut beans in the Grails 4 application or any other Spring application.
+The main additional feature is the ability to do more customisation to the Micronaut context such as adding a package for scanning.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-grails/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_log4aws"><a class="anchor" href="#_micronaut_log4aws"></a>2.6. Micronaut Log4AWS</h3>
+<div class="paragraph">
+<p>Micronaut Log4AWS simplifies integration of Amazon Web Services Lambda functions written with Micronaut into the Sentry service.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-log4aws/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_newrelic"><a class="anchor" href="#_micronaut_newrelic"></a>2.7. Micronaut NewRelic</h3>
+<div class="paragraph">
+<p>Micronaut NewRelic library helps to send the custom events to <a href="https://newrelic.com/">NewRelic</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-newrelic/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_recurly"><a class="anchor" href="#_micronaut_recurly"></a>2.8. Micronaut Recurly</h3>
+<div class="paragraph">
+<p>Micronaut Recurly library provides configuration for <a href="https://github.com/recurly/recurly-client-java">Recurly Java Client</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-recurly/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_rethrow"><a class="anchor" href="#_micronaut_rethrow"></a>2.9. Micronaut Rethrow</h3>
+<div class="paragraph">
+<p>Simple around advice which catches errors of given type and rethrows them as another type.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-rethrow/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_segment"><a class="anchor" href="#_micronaut_segment"></a>2.10. Micronaut Segment</h3>
+<div class="paragraph">
+<p>The Segment library allows you to integrate <a href="https://segment.com/">Segment</a> in your <a href="https://micronaut.io">Micronaut</a> or <a href="https://grails.org">Grails</a> applications.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/agorapulse/micronaut-segment#segment-micronaut-lib">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_snitch"><a class="anchor" href="#_micronaut_snitch"></a>2.11. Micronaut Snitch</h3>
+<div class="paragraph">
+<p>Micronaut snitch helps you to keep track of running asynchronous jobs (Quartz, Scheduled).</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-snitch/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_worker"><a class="anchor" href="#_micronaut_worker"></a>2.12. Micronaut Worker</h3>
+<div class="paragraph">
+<p>Micronaut Worker is a library for advanced scheduling and work distribution in Micronaut.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/micronaut-worker/">Read more</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing_libraries"><a class="anchor" href="#_testing_libraries"></a>3. Testing Libraries</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We provide several libraries to help you test your application.</p>
+</div>
+<div class="sect2">
+<h3 id="_dru"><a class="anchor" href="#_dru"></a>3.1. Dru</h3>
+<div class="paragraph">
+<p>Dru is Data Reconstruction Utility which helps to create and maintain test data based on real-life production data as
+it is for example often easier to grab production data of web application as JSON than trying to create selective export from one or more data stores.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/dru/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fixt"><a class="anchor" href="#_fixt"></a>3.2. Fixt</h3>
+<div class="paragraph">
+<p>Fixt helps organize fixtures for your fixtures in a directories with the same name as your test class.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/testing-libraries/#_fixt">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_grails_jobs_testing_support"><a class="anchor" href="#_grails_jobs_testing_support"></a>3.3. Grails Job Testing Support</h3>
+<div class="paragraph">
+<p>Grails Job Testing Support brings the same trait-based testing support to the jobs created by the Quartz plugin as the original <a href="https://testing.grails.org/">Grails Testing Support</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/testing-libraries/#_grails_job_testing_support">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gru"><a class="anchor" href="#_gru"></a>3.4. Gru</h3>
+<div class="paragraph">
+<p>Gru is HTTP interaction testing framework with out-of-box support for Micronaut, Grails, Spring MVC, API Gateway but it can be used with any HTTP server framework.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/gru/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_office_unit"><a class="anchor" href="#_office_unit"></a>3.5. Office Unit</h3>
+<div class="paragraph">
+<p>Office Unit is trivial tool for matching Microsoft Office documents.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/testing-libraries/#_office_unit">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spock"><a class="anchor" href="#_spock"></a>3.6. Spock Extensions</h3>
+<div class="paragraph">
+<p>Set of useful extensions for the <a href="https://spockframework.org/">Spock Framework</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/testing-libraries/#_spock">Read more</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_grails_plugins"><a class="anchor" href="#_grails_plugins"></a>4. Grails Plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is the list of currently available Grails plugins.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+We are deprecating the usage of Grails Plugins in favor of <a href="#_micronaut_libraries">Micronaut Libraries</a> at the moment.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_grails_aws_sdk"><a class="anchor" href="#_grails_aws_sdk"></a>4.1. Grails AWS SDK</h3>
+<div class="paragraph">
+<p>Grails AWS SDK plugins provide Grails integration to Amazon Web Services. At the moment,
+there is a support for Cognito, DynamoDB, Kinesis, S3, SES, SNS, SQS.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/agorapulse/grails-aws-sdk#aws-sdk-grails-plugin">Read more</a></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+These plugins are superseded by <a href="#_micronaut_aws_sdk">Micronaut AWS SDK</a> libraries.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_grails_facebook_sdk"><a class="anchor" href="#_grails_facebook_sdk"></a>4.2. Grails Facebook SDK</h3>
+<div class="paragraph">
+<p>This project contains the open source Grails Facebook SDK Plugin that allows you to integrate the Facebook Platform on a website/app powered by Grails.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/agorapulse/grails-facebook-sdk#facebook-sdk-grails-plugin">Read more</a></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+These plugins are superseded by <a href="#_micronaut_facebook_sdk">Micronaut Facebook SDK</a> libraries.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other"><a class="anchor" href="#_other"></a>5. Other</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following libraries are framework agnostic.</p>
+</div>
+<div class="sect2">
+<h3 id="_remember"><a class="anchor" href="#_remember"></a>5.1. Remember</h3>
+<div class="paragraph">
+<p><code>@Remember</code> is an annotation which helps you not to forget any temporary solution (aka hacks or quick wins) you have introduced into your code base.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/remember/">Read more</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 2021.5.17.0725<br>
+Last updated 2021-05-17 07:30:24 UTC
+</div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script>
+</body>
+</html>
