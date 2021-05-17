@@ -60,7 +60,7 @@ jobs:
           expression: ${{ matrix.library.xpath }}
       - name: Upgrade  ${{ matrix.library.name }} Number
         run: |
-          sed -i 's/${{ matrix.library.property }}.*/${{ matrix.library.property }} = ${{ steps.xpath.outputs.result }}/' gradle.properties
+          sed -i 's/^${{ matrix.library.property }}.*/${{ matrix.library.property }} = ${{ steps.xpath.outputs.result }}/' gradle.properties
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
