@@ -1,5 +1,9 @@
 ## Next Release
 
+###  0.9.0
+
+* Initial port of the GORM checker
+
 ### Micronaut Worker 1.1.0
 
 * disable jobs by default in tests and for functions
