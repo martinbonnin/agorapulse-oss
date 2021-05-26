@@ -76,6 +76,7 @@ dependencies {
         api "com.agorapulse:micronaut-worker:${project['micronaut.worker.version']}"
         api "com.agorapulse:micronaut-worker-queues-sqs-v1:${project['micronaut.worker.version']}"
         api "com.agorapulse:micronaut-worker-executor-redis:${project['micronaut.worker.version']}"
+        api "com.agorapulse:groovy-code-checks-grom:${project['agorapulse.checks.version']}"
         api "com.agorapulse.testing:fixt:${project['testing.libraries.version']}"
         api "com.agorapulse.testing:grails-job-testing-support:${project['testing.libraries.version']}"
         api "com.agorapulse.testing:office-unit:${project['testing.libraries.version']}"
