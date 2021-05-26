@@ -1,5 +1,9 @@
 ## Next Release
 
+### Amazon Web Services SDK Grails Plugin 2.4.13
+
+* re-release (missing deployer password before)
+
 ###  0.9.0
 
 * Initial port of the GORM checker
