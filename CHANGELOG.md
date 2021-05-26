@@ -1,5 +1,10 @@
 ## Next Release
 
+### Groovy Code Checks 0.9.1
+
+* ignore code within `*DataService` classes
+* bug fix
+
 ### Amazon Web Services SDK Grails Plugin 2.4.13
 
 * re-release (missing deployer password before)
