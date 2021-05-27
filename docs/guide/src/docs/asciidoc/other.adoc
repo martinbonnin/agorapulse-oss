@@ -3,6 +3,15 @@
 
 The following libraries are framework agnostic.
 
+[[_checks_]]
+
+== Groovy Code Checks
+
+Groovy Code Checks provides additional compile-time checks to ensure the best practises. At the moment there just a GORM implementation
+which forbids usage so instance and static GORM API in favour of data services.
+
+https://agorapulse.github.io/groovy-code-checks/[Read more]
+
 [[_remember]]
 
 == Remember
