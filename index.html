@@ -92,7 +92,7 @@ $(addBlockSwitches);
 <h1>Agorapulse OSS Hub</h1>
 <div class="details">
 <span id="author" class="author">Vladimir Orany</span><br>
-<span id="revnumber">version 2021.5.18.0630</span>
+<span id="revnumber">version 2021.5.27.0625</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -132,7 +132,8 @@ $(addBlockSwitches);
 </li>
 <li><a href="#_other">5. Other</a>
 <ul class="sectlevel2">
-<li><a href="#_remember">5.1. Remember</a></li>
+<li><a href="#_checks_">5.1. Groovy Code Checks</a></li>
+<li><a href="#_remember">5.2. Remember</a></li>
 </ul>
 </li>
 </ul>
@@ -151,7 +152,7 @@ to ensure you are using the latest versions of the libraries:</p>
 <div class="title">Gradle</div>
 <div class="content">
 <pre class="prettyprint highlight"><code data-lang="groovy">dependnecies {
-    implementation platform('com.agorapulse:agorapulse-oss:2021.5.18.0630')
+    implementation platform('com.agorapulse:agorapulse-oss:2021.5.27.0625')
 }</code></pre>
 </div>
 </div>
@@ -163,7 +164,7 @@ to ensure you are using the latest versions of the libraries:</p>
         &lt;dependency&gt;
             &lt;groupId&gt;com.agorapulse&lt;/groupId&gt;
             &lt;artifactId&gt;agorapulse-oss&lt;/artifactId&gt;
-            &lt;version&gt;2021.5.18.0630&lt;/version&gt;
+            &lt;version&gt;2021.5.27.0625&lt;/version&gt;
             &lt;type&gt;pom&lt;/type&gt;
             &lt;scope&gt;import&lt;/scope&gt;
         &lt;/dependency&gt;
@@ -421,7 +422,17 @@ These plugins are superseded by <a href="#_micronaut_facebook_sdk">Micronaut Fac
 <p>The following libraries are framework agnostic.</p>
 </div>
 <div class="sect2">
-<h3 id="_remember"><a class="anchor" href="#_remember"></a>5.1. Remember</h3>
+<h3 id="_checks_"><a class="anchor" href="#_checks_"></a>5.1. Groovy Code Checks</h3>
+<div class="paragraph">
+<p>Groovy Code Checks provides additional compile-time checks to ensure the best practises. At the moment there just a GORM implementation
+which forbids usage so instance and static GORM API in favour of data services.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://agorapulse.github.io/groovy-code-checks/">Read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_remember"><a class="anchor" href="#_remember"></a>5.2. Remember</h3>
 <div class="paragraph">
 <p><code>@Remember</code> is an annotation which helps you not to forget any temporary solution (aka hacks or quick wins) you have introduced into your code base.</p>
 </div>
@@ -434,8 +445,8 @@ These plugins are superseded by <a href="#_micronaut_facebook_sdk">Micronaut Fac
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 2021.5.18.0630<br>
-Last updated 2021-05-18 08:08:02 UTC
+Version 2021.5.27.0625<br>
+Last updated 2021-05-27 06:30:51 UTC
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
