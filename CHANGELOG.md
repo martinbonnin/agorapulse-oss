@@ -1,5 +1,9 @@
 ## Next Release
 
+### Amazon Web Services SDK Grails Plugin 2.4.14
+
+* reverted using static credentials once obtained (fixed expired credentials issue) 
+
 ### Groovy Code Checks 0.9.1
 
 * ignore code within `*DataService` classes
