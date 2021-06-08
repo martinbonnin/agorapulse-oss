@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Worker 1.1.1
+
+* ablity to set default queue type (e.g. `local` for local environment)
+
 ### Amazon Web Services SDK Grails Plugin 2.4.14
 
 * reverted using static credentials once obtained (fixed expired credentials issue) 
