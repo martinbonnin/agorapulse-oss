@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Newrelic Library 1.0.9
+
+* ensure fallback service is override
+
 ### Micronaut Newrelic Library 1.0.8
 
 * ability to use HTTP implementation even the NewRelic libraries are on the class path
