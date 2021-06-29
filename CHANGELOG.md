@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Newrelic Library 1.0.8
+
+* ability to use HTTP implementation even the NewRelic libraries are on the class path
+
 ### Micronaut Worker 1.1.1
 
 * ablity to set default queue type (e.g. `local` for local environment)
