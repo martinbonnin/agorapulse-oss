@@ -1,5 +1,12 @@
 ## Next Release
 
+### Micronaut Segment Library 1.0.0
+
+* Ability to add integration options
+* Better Java support using builder consumers
+* Better Groovy support with builders
+
+
 ### Micronaut Newrelic Library 1.0.9
 
 * ensure fallback service is override
