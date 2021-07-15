@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Segment Library 1.0.1
+
+* back to using factory to instantiate either real service or loop
+
 ### Micronaut Segment Library 1.0.0
 
 * Ability to add integration options
