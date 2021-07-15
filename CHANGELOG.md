@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Segment Library 1.0.3
+
+* downgrade Segment library to 2.x
+
 ### Micronaut Segment Library 1.0.1
 
 * back to using factory to instantiate either real service or loop
