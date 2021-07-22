@@ -1,5 +1,11 @@
 ## Next Release
 
+### Micronaut Segment Library 1.0.4
+
+* added logging using Slf4j
+* beans for callbacks, network executor, thread factory, retrofit client
+* attempt to make calls on functions blocking
+
 ### Micronaut Segment Library 1.0.3
 
 * downgrade Segment library to 2.x
