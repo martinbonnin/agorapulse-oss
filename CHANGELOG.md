@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Segment Library 1.0.4.1
+
+* fixed Segment logging format
+
 ### Micronaut Segment Library 1.0.4
 
 * added logging using Slf4j
