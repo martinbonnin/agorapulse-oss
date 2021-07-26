@@ -1,5 +1,10 @@
 ## Next Release
 
+### Micronaut Grails 3.0.4
+
+ * GORM to JPA generator
+ * Integration tests support for `MicronautGrailsApp`
+
 ### Micronaut Segment Library 1.0.4.1
 
 * fixed Segment logging format
