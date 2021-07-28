@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Grails 3.0.6
+
+* BREAKING CHANGE in GORM to Micronaut generator - entities are generated into package with suffix
+
 ### Micronaut Grails 3.0.5
 
 * support for generating Micronaut Data JDBC repositories
