@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Grails 3.0.5
+
+* support for generating Micronaut Data JDBC repositories
+
 ### Micronaut Grails 3.0.4
 
  * GORM to JPA generator
