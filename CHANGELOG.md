@@ -1,5 +1,9 @@
 ## Next Release
 
+### Groovy Unit Testing 0.9.4
+
+* upgraded Fixt
+
 ### Groovy Unit Testing 0.9.3
 
 * Fixed Micronaut file upload
