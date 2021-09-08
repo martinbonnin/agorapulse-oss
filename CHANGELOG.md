@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Worker 1.1.2
+
+* backward compatibility with the simple format of the messages which might pending in the queues
+
 ### Groovy Unit Testing 0.9.4
 
 * upgraded Fixt
