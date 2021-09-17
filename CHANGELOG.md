@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Rethrow 1.0.1
+
+* removed configuration files which may override the configuration files from the application
+
 ### Micronaut Worker 1.1.2
 
 * backward compatibility with the simple format of the messages which might pending in the queues
