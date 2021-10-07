@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Snitch 1.1.3
+
+* **BREAKING CHANGE** - no-op service issues warning if snitch  is not configured
+
 ### Micronaut Rethrow 1.0.1
 
 * removed configuration files which may override the configuration files from the application
