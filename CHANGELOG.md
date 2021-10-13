@@ -1,5 +1,10 @@
 ## Next Release
 
+### Micronaut Worker 1.1.3
+
+* disabled in CLI by default
+* increased the number of consumed messages from SQS queue to 10
+
 ### Micronaut Snitch 1.1.3
 
 * **BREAKING CHANGE** - no-op service issues warning if snitch  is not configured
