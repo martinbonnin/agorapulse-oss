@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Worker 1.1.4
+
+* Redis queues
+
 ### Micronaut Worker 1.1.3
 
 * disabled in CLI by default
