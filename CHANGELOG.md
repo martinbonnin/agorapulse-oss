@@ -1,5 +1,9 @@
 ## Next Release
 
+### Agorapulse Testing Libraries 0.2.3
+
+* [Fixt] Copy whole testing directory
+
 ### Micronaut Worker 1.1.4
 
 * Redis queues
