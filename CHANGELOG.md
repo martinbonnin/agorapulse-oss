@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Log4AWS 1.2.3-micronaut-1.0
+
+* explicit Log4J dependencies and BOM
+
 ### Agorapulse Testing Libraries 0.2.3
 
 * [Fixt] Copy whole testing directory
