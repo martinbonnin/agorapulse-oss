@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Log4AWS 1.2.4-micronaut-1.0
+
+* Upgraded to Log4J 2.16.0
+
 ### Micronaut Log4AWS 1.2.3-micronaut-1.0
 
 * explicit Log4J dependencies and BOM
