@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Log4AWS 1.2.5-micronaut-1.0
+
+* Upgraded to Log4J 2.17.0
+
 ### Groovy REST Unit Test Framework 0.9.5
 
 * ability to specify more acceptable statuses
