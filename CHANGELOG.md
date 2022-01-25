@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Facebook SDK 0.5.1
+
+* re-release with multiple Micronaut versions
+
 ### Micronaut Log4AWS 1.2.6-micronaut-1.0
 
 Upgrade lo4j to 2.17.1
