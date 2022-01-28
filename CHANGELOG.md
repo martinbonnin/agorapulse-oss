@@ -1,5 +1,9 @@
 ## Next Release
 
+### Agorapulse AWS SDK 1.6.1-micronaut-1.0
+
+* fixed release for MN 3.x version
+
 ### Micronaut Facebook SDK 0.5.1
 
 * re-release with multiple Micronaut versions
