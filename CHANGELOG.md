@@ -1,5 +1,10 @@
 ## Next Release
 
+### Micronaut Grails 3.1.0-micronaut-1.0
+
+* support for a multiple versions of Micronaut
+  * MN 2.x and MN 3.x are evaluated against Grails 5.1.x
+
 ### Agorapulse AWS SDK 1.6.1-micronaut-1.0
 
 * fixed release for MN 3.x version
