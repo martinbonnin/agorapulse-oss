@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Segment Library 1.1.0-micronaut-1.0
+
+* support for multiple Micronaut versions
+
 ### Micronaut Rethrow 1.1.0-micronaut-1.0
 
 * support for multiple Micronaut versions
