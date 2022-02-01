@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Recurly 1.1.2-micronaut-1.0
+
+* yet another fix for releasing the guide
+
 ### Micronaut Newrelic Library 1.1.1-micronaut-1.0
 
 * fixed MN 3.x release
