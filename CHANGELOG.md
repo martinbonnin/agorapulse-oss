@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Worker 1.2.0-micronaut-1.0
+
+* support for multiple Micronaut versions
+
 ### Micronaut Segment Library 1.1.0-micronaut-1.0
 
 * support for multiple Micronaut versions
