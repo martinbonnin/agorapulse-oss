@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Newrelic Library 1.1.1-micronaut-1.0
+
+* fixed MN 3.x release
+
 ### Micronaut Grails 3.1.0-micronaut-1.0
 
 * support for a multiple versions of Micronaut
