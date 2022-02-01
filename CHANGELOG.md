@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Rethrow 1.1.0-micronaut-1.0
+
+* support for multiple Micronaut versions
+
 ### Micronaut Recurly 1.1.2-micronaut-1.0
 
 * yet another fix for releasing the guide
