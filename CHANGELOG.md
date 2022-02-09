@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Grails 3.1.1-micronaut-1.0
+
+* fixed issue with older Spring Boot versions
+
 ### Micronaut Worker 1.2.0-micronaut-1.0
 
 * support for multiple Micronaut versions
