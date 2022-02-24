@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Rethrow 1.1.1-micronaut-1.0
+
+* move `Rethrow` around the `Retryable` annotations
+
 ### Micronaut Grails 3.1.2-micronaut-1.0
 
 * fixed Spring 2.1.x compatibility
