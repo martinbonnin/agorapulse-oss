@@ -67,6 +67,7 @@ dependencies {
         api "com.agorapulse:dru-parser-yaml:${project['dru.version']}"
         api "com.agorapulse:micronaut-log4aws:${project['micronaut.log4aws.version']}"
         api "com.agorapulse:micronaut-newrelic:${project['micronaut.newrelic.version']}"
+        api "com.agorapulse:micronaut-permissions:${project['micronaut.permissions.version']}"
         api "com.agorapulse:micronaut-newrelic-http:${project['micronaut.newrelic.version']}"
         api "com.agorapulse:micronaut-bigquery:${project['micronaut.bigquery.version']}"
         api "com.agorapulse:micronaut-bigquery-aws:${project['micronaut.bigquery.version']}"
