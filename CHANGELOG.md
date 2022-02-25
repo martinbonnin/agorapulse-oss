@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Permissions 1.0.0-micronaut-1.0
+
+* initial release
+
 ### Micronaut Rethrow 1.1.1-micronaut-1.0
 
 * move `Rethrow` around the `Retryable` annotations
