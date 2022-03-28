@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Permissions 1.0.1-micronaut-1.0
+
+
+
 ### Micronaut Log4AWS 2.0.0-micronaut-1.0
 
 ## Breaking Change
