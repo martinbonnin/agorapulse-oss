@@ -1,5 +1,11 @@
 ## Next Release
 
+### Micronaut Log4AWS 2.0.0-micronaut-1.0
+
+## Breaking Change
+
+* switched to Sentry 5.4.0
+
 ### Micronaut Permissions 1.0.0-micronaut-1.0
 
 * initial release
