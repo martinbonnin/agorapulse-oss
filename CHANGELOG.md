@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Log4AWS 2.0.2-micronaut-1.0
+
+* support for legacy `SENTRY_DSN ` definition
+
 ### Micronaut Log4AWS 2.0.1-micronaut-1.0
 
 * execute `Sentry.flush()` from `@LogError` calls
