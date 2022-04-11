@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Newrelic Library 1.1.2-micronaut-1.0
+
+* preventing _Recursive update_ issues when evaluating the bean conditions
+
 ### Micronaut Log4AWS 2.0.2-micronaut-1.0
 
 * support for legacy `SENTRY_DSN ` definition
