@@ -1,5 +1,10 @@
 ## Next Release
 
+### Agorapulse AWS SDK 1.6.2-micronaut-1.0
+
+* bumped AWS libraries versions
+* Compressed DynamoDB Field Converter
+
 ### Micronaut Newrelic Library 1.1.2-micronaut-1.0
 
 * preventing _Recursive update_ issues when evaluating the bean conditions
