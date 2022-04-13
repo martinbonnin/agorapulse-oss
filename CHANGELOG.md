@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Log4AWS 2.0.3-micronaut-1.0
+
+* fixed scope not popped when error happened
+
 ### Agorapulse AWS SDK 1.6.2-micronaut-1.0
 
 * bumped AWS libraries versions
