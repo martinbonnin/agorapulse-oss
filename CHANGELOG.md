@@ -1,5 +1,9 @@
 ## Next Release
 
+### Groovy REST Unit Test Framework 1.0.1
+
+* re-release due previous publishing failure
+
 ### Micronaut Log4AWS 2.0.3-micronaut-1.0
 
 * fixed scope not popped when error happened
