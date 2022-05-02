@@ -1,5 +1,9 @@
 ## Next Release
 
+### Groovy REST Unit Test Framework 1.0.3
+
+* upgraded JSoup as the previous version contains security issues
+
 ### Groovy REST Unit Test Framework 1.0.2
 
 * allow more digits in ISO date fraction part (fixes ISO date matchers on Java 11)
