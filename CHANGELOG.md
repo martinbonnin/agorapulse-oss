@@ -1,5 +1,9 @@
 ## Next Release
 
+### Groovy REST Unit Test Framework 1.0.2
+
+* allow more digits in ISO date fraction part (fixes ISO date matchers on Java 11)
+
 ### Groovy REST Unit Test Framework 1.0.1
 
 * re-release due previous publishing failure
