@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Log4AWS 2.0.4-micronaut-1.0
+
+* simplified sentry filter scope handling
+
 ### Agorapulse AWS SDK 1.7.2-micronaut-1.0
 
 * adopted new Gradle configurations (some dependencies moved to runtime)
