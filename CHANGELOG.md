@@ -1,5 +1,10 @@
 ## Next Release
 
+### Agorapulse AWS SDK 1.7.2-micronaut-1.0
+
+* adopted new Gradle configurations (some dependencies moved to runtime)
+* Automatic Localstack integration
+
 ### Groovy REST Unit Test Framework 1.0.3
 
 * upgraded JSoup as the previous version contains security issues
