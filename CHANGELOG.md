@@ -1,5 +1,9 @@
 ## Next Release
 
+### Groovy REST Unit Test Framework 1.0.4
+
+ability to specify delegate for the Micronaut client
+
 ### Micronaut Log4AWS 2.0.5-micronaut-1.0
 
 * another way to handle sentry scopes
