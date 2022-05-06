@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Log4AWS 2.0.5-micronaut-1.0
+
+* another way to handle sentry scopes
+
 ### Micronaut Log4AWS 2.0.4-micronaut-1.0
 
 * simplified sentry filter scope handling
