@@ -60,7 +60,7 @@ https://agorapulse.github.io/micronaut-newrelic/[Read more]
 
 Micronaut Permissions provides a lightweight library to declare object level permissions in Micronaut which can be declared on any service and which are not limited to HTTP environment.
 
-https://agorapulse.github.io/micronaut-permmissions/[Read more]
+https://agorapulse.github.io/micronaut-permissions/[Read more]
 
 [[_micronaut_recurly]]
 == Micronaut Recurly
