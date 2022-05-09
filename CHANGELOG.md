@@ -1,5 +1,9 @@
 ## Next Release
 
+### Micronaut Permissions 1.0.2-micronaut-1.0
+
+* made the annotations inherited
+
 ### Groovy REST Unit Test Framework 1.0.4
 
 ability to specify delegate for the Micronaut client
