@@ -1,5 +1,9 @@
 ## Next Release
 
+### Agorapulse AWS SDK 1.7.3-micronaut-1.0
+
+* support for incremental annotation processing
+
 ### Micronaut Permissions 1.0.2-micronaut-1.0
 
 * made the annotations inherited
